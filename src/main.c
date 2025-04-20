@@ -12,6 +12,7 @@ static void on_activate(GtkApplication *app, gpointer user_data) {
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
 
     button = gtk_button_new_with_label("Hello World");
+    gtk_widget_set_size_request(button, 100, 50);
     g_signal_connect(button, "clicked", G_CALLBACK(print_hello), NULL);
     gtk_window_set_child(GTK_WINDOW(window), button);
 
