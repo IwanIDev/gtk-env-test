@@ -36,6 +36,10 @@ jobs:
     
     - name: Install vcpkg dependencies
       uses: lukka/run-vcpkg@v11
+      with:
+        runVcpkgInstall: true
+        vcpkgDirectory: ${{github.workspace}}/vcpkg
+        VCPKG_DEFAULT_TRIPLET: x64-linux
 
     - name: Install XOrg Dependencies
       run: sudo apt install libx11-dev libxft-dev libxext-dev libxrender-dev libxrandr-dev libxi-dev libxcursor-dev libxinerama-dev libgl1-mesa-dev
