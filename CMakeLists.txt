@@ -10,7 +10,10 @@ project(gtk_env_test)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK REQUIRED gtk4)
 
-add_executable(${PROJECT_NAME} src/main.c)
+# Add source files
+file(GLOB_RECURSE SRC "src/*.c")
+
+add_executable(${PROJECT_NAME} ${SRC})
 
 # Include GTK headers
 target_include_directories(${PROJECT_NAME} PRIVATE ${GTK_INCLUDE_DIRS})
