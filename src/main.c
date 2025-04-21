@@ -6,15 +6,17 @@ static void print_hello(GtkWidget *widget, gpointer data) {
 
 static void on_activate(GtkApplication *app, gpointer user_data) {
     GtkWidget *window = gtk_application_window_new(app);
-    GtkWidget *button;
+    GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+    GtkWidget *button = gtk_button_new_with_label("Hello World!");
 
     gtk_window_set_title(GTK_WINDOW(window), "GTK App");
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
 
-    button = gtk_button_new_with_label("Hello World");
     gtk_widget_set_size_request(button, 100, 50);
     g_signal_connect(button, "clicked", G_CALLBACK(print_hello), NULL);
-    gtk_window_set_child(GTK_WINDOW(window), button);
+
+    gtk_box_append(GTK_BOX(box), button);
+    gtk_window_set_child(GTK_WINDOW(window), box);
 
     gtk_window_present(GTK_WINDOW(window));
 }
