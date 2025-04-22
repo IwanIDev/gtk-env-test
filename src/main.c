@@ -11,6 +11,7 @@ static void on_activate(GtkApplication *app, gpointer user_data) {
 
     gtk_window_set_title(GTK_WINDOW(window), "GTK App");
     gtk_window_set_default_size(GTK_WINDOW(window), 400, 300);
+    gtk_window_set_resizable(GTK_WINDOW(window), TRUE);
 
     gtk_widget_set_size_request(button, 100, 50);
     g_signal_connect(button, "clicked", G_CALLBACK(print_hello), NULL);
